@@ -150,8 +150,14 @@ class BookController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async destroy ({ params, request, response }) {
+  async destroy ({ params : {id}, request, response }) {
+    const book = await Book.find(id)
 
+    await book.delete()
+
+    response.json({
+      message : "succesfully deleted "
+    })
 
   }
 }

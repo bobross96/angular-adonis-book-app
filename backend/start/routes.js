@@ -28,3 +28,5 @@ Route.get('/api/books/:id', 'BookController.show')
 Route.post('/api/books', 'BookController.store')
 
 Route.patch('/api/books/:id','BookController.update')
+
+Route.delete('/api/books/:id', 'BookController.destroy')
