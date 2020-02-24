@@ -30,3 +30,8 @@ Route.post('/api/books', 'BookController.store')
 Route.patch('/api/books/:id','BookController.update')
 
 Route.delete('/api/books/:id', 'BookController.destroy')
+
+
+Route.post('/api/login','UserController.login').middleware('guest')
+
+Route.get('/users/:id', 'UserController.show').middleware('auth')

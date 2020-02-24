@@ -142,14 +142,7 @@ class BookController {
 
   }}
 
-  /**
-   * Delete a book with id.
-   * DELETE books/:id
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   */
+ 
   async destroy ({ params : {id}, request, response }) {
     const book = await Book.find(id)
 
