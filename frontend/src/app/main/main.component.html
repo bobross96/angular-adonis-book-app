@@ -1,0 +1,11 @@
+<p>main works!</p>
+
+<button (click)="getBooks()">Get List of Books</button>
+
+<div *ngIf="books">
+<li *ngFor="let book of books">
+    
+    <span class="badge">{{ book.name }}: </span>{{book.description}}
+    
+</li>
+</div>

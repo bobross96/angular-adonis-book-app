@@ -1,0 +1,13 @@
+
+
+
+<!-- <button (click)="getBooks()">Get List of Books</button> -->
+<h2>list of books</h2>
+
+<div *ngIf="books">
+<li *ngFor="let book of books">
+    <a routerLink="/book-detail/{{book.id}}">
+    <span class="badge">{{ book.title }} </span>
+    </a>
+</li>
+</div>
