@@ -1,13 +1,8 @@
 .container {
-    padding-left: 0.5rem;
+    padding: 3rem;
 }
 
-nav {
-    display: flex;
 
-
-}
-
-nav a {
-    padding: 0.5rem;
+a {
+    padding: 8px;
 }

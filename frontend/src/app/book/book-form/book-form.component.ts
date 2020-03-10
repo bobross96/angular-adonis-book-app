@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { Book } from '../book';
-import { ApiService } from '../api.service'
+import { Book } from '../../book';
+import { ApiService } from '../../api.service'
 import { NgForm } from '@angular/forms';
 
 
 @Component({
-  selector: 'app-book-add',
-  templateUrl: './book-add.component.html',
-  styleUrls: ['./book-add.component.css']
+  selector: 'app-book-form',
+  templateUrl: './book-form.component.html',
+  styleUrls: ['./book-form.component.css']
 })
-export class BookAddComponent implements OnInit {
+export class BookFormComponent implements OnInit {
   
   ratings = [1,2,3,4,5,6,7,8,9,10];
 
