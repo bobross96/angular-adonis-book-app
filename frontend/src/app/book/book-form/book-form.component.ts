@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Book } from '../book';
-import { ApiService } from '../api.service'
+import { Book } from '../../book';
+import { ApiService } from '../../api.service'
 import { NgForm } from '@angular/forms';
 
 

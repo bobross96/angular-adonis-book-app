@@ -9,6 +9,8 @@ import { Book } from './book';
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
+
+// connection to backend is done via proxy
 const apiUrl = "/api/books";
 
 
