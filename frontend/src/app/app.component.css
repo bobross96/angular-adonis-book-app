@@ -1,0 +1,13 @@
+.container {
+    padding-left: 0.5rem;
+}
+
+nav {
+    display: flex;
+
+
+}
+
+nav a {
+    padding: 0.5rem;
+}

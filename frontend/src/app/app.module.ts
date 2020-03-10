@@ -9,9 +9,9 @@ import { MainComponent } from './main/main.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BooksComponent } from './books/books.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
-import { BookAddComponent } from './book-add/book-add.component';
+
 import { BookEditComponent } from './book-edit/book-edit.component';
-import { BookFormComponent } from './book-form/book-form.component';
+import { BookAddComponent } from './book-add/book-add.component';
 import { ReactiveFormsModule} from '@angular/forms';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { RegisterComponent } from './register/register.component';
@@ -25,7 +25,7 @@ import { RegisterComponent } from './register/register.component';
     BookDetailComponent,
     BookAddComponent,
     BookEditComponent,
-    BookFormComponent,
+   
     ReactiveFormComponent,
     RegisterComponent
   ],

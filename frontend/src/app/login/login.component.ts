@@ -9,9 +9,20 @@ import { LoginService } from '../login.service'
 })
 export class LoginComponent implements OnInit {
   model = new User()
+  submitted = false
 
-  onSumbit(user : User) : void {
-    
+  onSubmit(user : User) : void {
+    this.submitted = true;
+    const userLogin = {
+      email : this.model.email,
+      password : this.model.password
+    }
+
+    this.loginapi.loginUser(userLogin).subscribe((res:any)=> {
+      console.log(res.data)
+    }, err => {
+      console.log(err);
+    })
   }
   
   constructor(private loginapi : LoginService) { }

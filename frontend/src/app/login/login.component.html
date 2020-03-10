@@ -1,7 +1,7 @@
 
 <div class="container">
     
-  
+  <h2>Login</h2>
   
   <form (ngSubmit)="onSubmit()" #loginForm ="ngForm">
       <div class="form-group">
@@ -30,7 +30,7 @@
 
       <button type="submit" class="btn btn-success" [disabled]="!loginForm.form.valid">Submit</button>
       <button type="button" class="btn btn-default" (click)="loginForm.reset()">Reset</button>
-
+      <a href="/register"> first time logging in?</a>
   </form>
 </div>
 
@@ -40,8 +40,8 @@
 
 
 
-    <button><a routerLink='/login/forgotpass'>Forgot password?</a></button><br>
-    <button><a routerLink='/login/google'>Login with google</a></button>
+    <!-- <button><a routerLink='/login/forgotpass'>Forgot password?</a></button><br>
+    <button><a routerLink='/login/google'>Login with google</a></button> -->
     
 
 
