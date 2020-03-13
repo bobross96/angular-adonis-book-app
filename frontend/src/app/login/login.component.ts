@@ -11,7 +11,7 @@ export class LoginComponent implements OnInit {
   model = new User()
   submitted = false
 
-  onSubmit(user : User) : void {
+  onSubmit() : void {
     this.submitted = true;
     const userLogin = {
       email : this.model.email,

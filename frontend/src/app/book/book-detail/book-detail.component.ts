@@ -15,6 +15,7 @@ export class BookDetailComponent  {
 
   book : Book
 
+  // function is called on init to generate the data 
   getBookDetail():void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.api.getBook(id).subscribe((res: any) => {

@@ -21,7 +21,7 @@ Route.get('/', () => {
 })
 
 
-Route.get('/api/books', 'BookController.index').middleware('auth')
+Route.get('/api/books', 'BookController.index')
 
 Route.get('/api/books/:id', 'BookController.show')
 
@@ -32,9 +32,9 @@ Route.patch('/api/books/:id','BookController.update')
 Route.delete('/api/books/:id', 'BookController.destroy')
 
 
-Route.post('/api/login','UserController.login').middleware('guest')
+Route.post('/api/login','UserController.login')
 
-Route.get('/users/:id', 'UserController.show').middleware('auth')
+Route.get('/users/:id', 'UserController.show')
 
 Route.post('/api/register','UserController.register')
 

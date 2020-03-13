@@ -6,3 +6,7 @@
 a {
     padding: 8px;
 }
+
+.active-link {
+   font-weight: 700;   
+}
