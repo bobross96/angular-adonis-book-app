@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { BooksRoutingModule } from './books-routing.module';
 import { BooksComponent } from './books/books.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
-import { BookAddComponent } from './book-add/book-add.component';
+import { BookAddComponent } from '../admin/book-add/book-add.component';
 import { BookEditComponent } from './book-edit/book-edit.component';
 import { BookFormComponent } from './book-form/book-form.component';
 import { ReactiveFormComponent } from '../reactive-form/reactive-form.component';

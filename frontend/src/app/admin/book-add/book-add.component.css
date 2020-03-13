@@ -6,3 +6,7 @@ input {
 select {
     width : 10%
 }
+
+a {
+    margin-right: 3rem;
+}

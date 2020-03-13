@@ -4,6 +4,8 @@ import { Observable, of } from 'rxjs';
 import {Book} from './book';
 import { User } from './user';
 import { tap, catchError } from 'rxjs/operators';
+import {AuthService } from './auth/auth.service';
+import { Router } from '@angular/router';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -46,9 +48,19 @@ export class LoginService {
   loginUser(user): Observable<any>{
     return this.http.post<any>("/api/login",user)
     .pipe(
-      tap(()=> console.log('user login')),
+      tap(()=> {
+        this.authService.isLoggedIn = true;
+        console.log('user login')
+        this.router.navigate(['admin'])
+      }),
       catchError(this.handleError('loginUser',[]))
     )
   }
-  constructor(private http : HttpClient) { }
+
+  
+  logoutUser(){
+    this.authService.isLoggedIn = false
+    this.router.navigate(['books'])
+  }
+  constructor(private http : HttpClient, private authService : AuthService, private router : Router) { }
 }

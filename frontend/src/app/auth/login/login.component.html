@@ -30,6 +30,7 @@
 
       <button type="submit" class="btn btn-success" [disabled]="!loginForm.form.valid">Submit</button>
       <button type="button" class="btn btn-default" (click)="loginForm.reset()">Reset</button>
+      <button type="button" class="btn btn-default" (click)="logout()">logout</button>
       <a href="/register"> first time logging in?</a>
   </form>
 </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../user';
-import { LoginService } from '../login.service'
+import { User } from '../../user';
+import { LoginService } from '../../login.service'
  
 @Component({
   selector: 'app-login',
@@ -20,9 +20,14 @@ export class LoginComponent implements OnInit {
 
     this.loginapi.loginUser(userLogin).subscribe((res:any)=> {
       console.log(res.data)
+      localStorage.setItem('jwt',res.data.token)
     }, err => {
       console.log(err);
     })
+  }
+
+  logout():void {
+    this.loginapi.logoutUser()
   }
   
   constructor(private loginapi : LoginService) { }
