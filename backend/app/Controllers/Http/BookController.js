@@ -1,6 +1,23 @@
 'use strict'
 
 const Book = use('App/Models/Book')
+const puppeteer = require('puppeteer');
+
+async function scrape(bookTitle){
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+  console.log('im running')
+  await page.goto("https://www.bookdepository.com/search?searchTerm=" + bookTitle + "&search=Find+book")
+  // needs to wait cos lazy loaded
+  await page.waitFor(500);
+  const image = await page.evaluate(() => document.querySelector("div.item-img a img").getAttribute('src'))
+  const isbn = await page.evaluate(() => document.querySelector("meta:nth-child(2)").getAttribute('content'))
+  console.log(image);
+  await page.screenshot({path: 'example.png'});
+
+  await browser.close();
+  return {image,isbn}
+}
 
 /**
  * Resourceful controller for interacting with books
@@ -66,13 +83,18 @@ class BookController {
     book.title = title
     book.description = description
     book.rating = rating
-
+    console.log('im running')
+    const scraped = await scrape(title);
+    book.isbn = scraped.isbn
+    book.image = scraped.image
     await book.save()
 
     response.json({
       message : 'book posted',
       data : book
     })
+    
+    
   }
 
   /**

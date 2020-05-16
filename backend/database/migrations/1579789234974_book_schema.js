@@ -12,6 +12,9 @@ class BookSchema extends Schema {
       table.text('description')
       table.string('author')
       table.integer('rating')
+      table.string('image')
+      table.string('isbn')
+      
       
     })
   }

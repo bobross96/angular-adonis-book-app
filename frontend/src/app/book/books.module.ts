@@ -7,7 +7,6 @@ import { BookDetailComponent } from './book-detail/book-detail.component';
 import { BookAddComponent } from '../admin/book-add/book-add.component';
 import { BookEditComponent } from '../admin/book-edit/book-edit.component';
 import { BookFormComponent } from './book-form/book-form.component';
-import { ReactiveFormComponent } from '../reactive-form/reactive-form.component';
 import { RegisterComponent } from '../register/register.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MainComponent } from '../main/main.component';
@@ -21,7 +20,6 @@ import {FlexLayoutModule} from '@angular/flex-layout'
     BookAddComponent,
     BookEditComponent,
     BookFormComponent,
-    ReactiveFormComponent,
     RegisterComponent,
     MainComponent,
   ],
