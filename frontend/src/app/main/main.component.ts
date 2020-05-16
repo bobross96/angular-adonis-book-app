@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from '../login.service';
+import { LoginService } from '../auth/login/login.service';
 import {Book} from '../book';
 import { Observable, of } from 'rxjs';
 

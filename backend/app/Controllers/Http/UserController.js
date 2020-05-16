@@ -7,6 +7,7 @@ class UserController {
     async login({auth, request,response}){
         //retrieves from user login attempt
         const {email, password } = request.all()
+        console.log(`email is ${email} and pass is ${password}`)
         // generates token based on email and password of the user
         const token = await auth.attempt(email,password)
         

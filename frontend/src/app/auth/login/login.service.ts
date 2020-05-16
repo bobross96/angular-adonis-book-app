@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import {Book} from './book';
-import { User } from './user';
+import {Book} from '../../book';
+import { User } from '../../user';
 import { tap, catchError } from 'rxjs/operators';
-import {AuthService } from './auth/auth.service';
+import {AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 
 const httpOptions = {
@@ -16,7 +16,11 @@ const apiUrl = "/api/register"
   providedIn: 'root'
 })
 export class LoginService {
+
   user : User
+
+  constructor(private http : HttpClient, private authService : AuthService, private router : Router) { }
+  
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
   
@@ -62,5 +66,5 @@ export class LoginService {
     this.authService.isLoggedIn = false
     this.router.navigate(['books'])
   }
-  constructor(private http : HttpClient, private authService : AuthService, private router : Router) { }
+  
 }

@@ -15,7 +15,7 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<u
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       let url : string = state.url
-      console.log('asdadsd')
+      
       return this.checkLogin(url);
     
   }
@@ -24,12 +24,15 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<u
     if (this.authService.isLoggedIn){
       return true;
     }
-
+    else {
+      window.alert('Youre not logged in!')
+    }
+    console.log(url)
     //store attempted url for redirecting
     this.authService.redirectUrl = url;
 
     // navigate to login page 
-    this.router.navigate([''])
+    //this.router.navigate([''])
   }
   canActivateChild(
     next: ActivatedRouteSnapshot,

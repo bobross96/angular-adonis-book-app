@@ -5,6 +5,7 @@ import { ManageBooksComponent } from './manage-books/manage-books.component';
 import { AdminComponent } from './admin/admin.component';
 import {AuthGuard} from '../auth/auth.guard';
 import { BookAddComponent } from './book-add/book-add.component';
+import { BookEditComponent } from './book-edit/book-edit.component';
 
 
 const adminRoutes: Routes = [
@@ -16,7 +17,8 @@ const adminRoutes: Routes = [
       children : [
           {path : 'dashboard' , component : AdminDashboardComponent},
           {path : 'manage-books', component : ManageBooksComponent},
-          {path : 'book-add', component : BookAddComponent}
+          {path : 'book-add', component : BookAddComponent},
+          {path : 'book-edit/:id', component : BookEditComponent}
         ]
       }
     ]
