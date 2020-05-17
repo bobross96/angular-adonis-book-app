@@ -43,7 +43,9 @@ class BookController {
         title : book.title,
         description : book.description,
         author : book.author,
-        rating : book.rating
+        rating : book.rating,
+        isbn : book.isbn,
+        image : book.image
       }
       });
 
@@ -78,7 +80,8 @@ class BookController {
   async store ({ request, response }) {
     const {title,author, description, rating} = request.post()
     const book = new Book()
-    
+    const book2 = new Book()
+    console.log(book2)
     book.author = author
     book.title = title
     book.description = description
@@ -114,10 +117,13 @@ class BookController {
       title : book.title,
       description : book.description,
       author : book.author,
-      rating : book.rating
+      rating : book.rating,
+      isbn : book.isbn,
+      image : book.image
 
     }
 
+    
     response.json({
       message : 'show works',
       data : bookData
