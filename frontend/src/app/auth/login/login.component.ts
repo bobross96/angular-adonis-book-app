@@ -1,38 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../user';
-import { LoginService } from './login.service'
- 
+import { FormGroup,FormControl } from '@angular/forms';
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  model = new User()
-  submitted = false
+  loginForm = new FormGroup ({
+    username : new FormControl(''),
+    password : new FormControl('')
+  })
 
-  onSubmit() : void {
-    this.submitted = true;
-    const userLogin = {
-      email : this.model.email,
-      password : this.model.password
-    }
+  constructor() { }
 
-    this.loginapi.loginUser(userLogin).subscribe((res:any)=> {
-      console.log(res.data)
-      localStorage.setItem('jwt',res.data.token)
-    }, err => {
-      console.log(err);
-    })
+  ngOnInit(): void {
   }
 
-  logout():void {
-    this.loginapi.logoutUser()
-  }
-  
-  constructor(private loginapi : LoginService) { }
-
-  ngOnInit() {
+  onSubmit(){
+    console.log(this.loginForm.value);
+    
   }
 
 }

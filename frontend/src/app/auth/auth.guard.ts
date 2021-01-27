@@ -3,41 +3,26 @@ import { CanActivate, CanActivateChild, CanDeactivate, CanLoad, Route, UrlSegmen
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<unknown>, CanLoad {
-  constructor(private authService : AuthService, private router : Router){
 
-  }
+  constructor(private authService : AuthService, private router : Router){}
+
   canActivate(
-    next: ActivatedRouteSnapshot,
+    route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      let url : string = state.url
-      
-      return this.checkLogin(url);
+
+      return this.checkLogin();
+
+
     
   }
-
-  checkLogin(url : string):boolean{
-    if (this.authService.isLoggedIn){
-      return true;
-    }
-    else {
-      window.alert('Youre not logged in!')
-    }
-    console.log(url)
-    //store attempted url for redirecting
-    this.authService.redirectUrl = url;
-
-    // navigate to login page 
-    //this.router.navigate([''])
-  }
   canActivateChild(
-    next: ActivatedRouteSnapshot,
+    childRoute: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return this.canActivate(next,state)
+    return true;
   }
   canDeactivate(
     component: unknown,
@@ -48,7 +33,18 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<u
   }
   canLoad(
     route: Route,
-    segments: UrlSegment[]): Observable<boolean> | Promise<boolean> | boolean {
+    segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return true;
+  }
+
+
+  checkLogin() {
+    if (this.authService.isLoggedIn){
+      return true
+    }
+
+    else {
+      return this.router.parseUrl('/login')
+    }
   }
 }

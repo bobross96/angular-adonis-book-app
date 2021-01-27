@@ -1,34 +1,43 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'
-import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './auth/login/login.component';
-import { MainComponent } from './main/main.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule} from '@angular/forms';
-
+import { BooksComponent } from './books/books.component';
+import { HomeComponent } from './home/home.component';
+import { MemberModule } from './member/member.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { BooksModule } from './book/books.module';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { AdminModule } from './admin/admin.module'
+import { LoginComponent } from './auth/login/login.component';
+import { HttpClientModule} from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input'; 
+import { ReactiveFormsModule } from '@angular/forms';
+
+
+import {MatButtonModule} from '@angular/material/button';
+import { RegisterComponent } from './auth/register/register.component'; 
+
 @NgModule({
   declarations: [
     AppComponent,
+    BooksComponent,
+    HomeComponent,
+    PageNotFoundComponent,
     LoginComponent,
-    PageNotFoundComponent
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    ReactiveFormsModule,
-    BooksModule,
-    FlexLayoutModule,
-    AdminModule,
+    MemberModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatButtonModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

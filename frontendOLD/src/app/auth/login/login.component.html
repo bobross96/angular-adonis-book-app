@@ -1,0 +1,49 @@
+
+<div class="container">
+    
+  <h2>Login</h2>
+  
+  <form (ngSubmit)="onSubmit()" #loginForm ="ngForm">
+      <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" class="form-control" id="title" required
+          [(ngModel)]="model.email" name="model.email" #email="ngModel">
+         
+          <div [hidden]="email.pristine || email.valid"
+          class="alert alert-danger">
+          Email is required
+           </div>
+          
+      </div>
+
+      <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" required
+          [(ngModel)]="model.password" name="password" #password="ngModel">
+          <div [hidden]="password.pristine || password.valid" 
+          class="alert alert-danger">
+          Password is required
+          </div>
+      </div>
+
+     
+
+      <button type="submit" class="btn btn-success" [disabled]="!loginForm.form.valid">Submit</button>
+      <button type="button" class="btn btn-default" (click)="loginForm.reset()">Reset</button>
+      <button type="button" class="btn btn-default" (click)="logout()">logout</button>
+      <a href="/register"> first time logging in?</a>
+  </form>
+</div>
+
+
+
+
+
+
+
+    <!-- <button><a routerLink='/login/forgotpass'>Forgot password?</a></button><br>
+    <button><a routerLink='/login/google'>Login with google</a></button> -->
+    
+
+
+    <router-outlet></router-outlet>

@@ -1,0 +1,12 @@
+<div class="container">
+<h1>Welcome to books app</h1>
+
+<nav>
+   
+        <a routerLink="/books" routerLinkActive="active-link">List of books</a>
+        <a [routerLink]=" ['./'] ">Login</a>
+        <a routerLink="/admin" routerLinkActive="active-link">Admin</a>
+    
+</nav>
+<router-outlet></router-outlet>
+</div>
