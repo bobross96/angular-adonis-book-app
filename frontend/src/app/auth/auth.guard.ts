@@ -7,14 +7,14 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<unknown>, CanLoad {
-
+  isLoggedIn : boolean;
   constructor(private authService : AuthService, private router : Router){}
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-      return this.checkLogin();
+      return this.checkLogin()
 
 
     
@@ -39,7 +39,7 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<u
 
 
   checkLogin() {
-    if (this.authService.isLoggedIn){
+    if (localStorage.getItem('token')){
       return true
     }
 

@@ -34,6 +34,8 @@ Route.delete('/api/books/:id', 'BookController.destroy')
 
 Route.post('/api/login','UserController.login')
 
+Route.get('/api/tokenCheck','UserController.checkLogin')
+
 Route.get('/users/:id', 'UserController.show')
 
 Route.post('/api/register','UserController.register')
